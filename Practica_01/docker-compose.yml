@@ -1,0 +1,24 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: gerenciales
+    command: [
+      "--default-authentication-plugin=mysql_native_password",
+      "--secure-file-priv=/var/lib/mysql-files",
+      "--local-infile=1"
+    ]
+    environment:
+      MYSQL_ROOT_PASSWORD: practicas
+      MYSQL_DATABASE: gerenciales2
+      MYSQL_USER: iskandar
+      MYSQL_PASSWORD: wutheringwaves
+      TZ: America/Guatemala
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -prootpass || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
