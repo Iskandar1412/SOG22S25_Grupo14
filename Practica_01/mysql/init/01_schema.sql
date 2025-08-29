@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS gerenciales2;
-USE gerenciales2;
+CREATE DATABASE IF NOT EXISTS gerenciales;
+USE gerenciales;
 
 CREATE TABLE IF NOT EXISTS customers (
   customer_id INT PRIMARY KEY,

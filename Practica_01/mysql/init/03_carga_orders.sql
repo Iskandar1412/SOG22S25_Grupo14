@@ -1,7 +1,6 @@
-USE gerenciales2;
-SET SESSION local_infile = 1;
+USE gerenciales;
 
-LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/basedatos.csv'
+LOAD DATA INFILE '/var/lib/mysql-files/basedatos.csv'
 INTO TABLE orders
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
